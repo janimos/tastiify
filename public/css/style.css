@@ -19,6 +19,14 @@ Colors: Yellow #FFF891
     text-decoration: none;
     text-transform: uppercase;
 }
+.navbar-links > a {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: #171A25;
+}
+.navbar-links a:hover{
+  color: #4F7670;
+}
 .m-b-md {
     margin-bottom: 30px;
 }
@@ -29,9 +37,18 @@ Colors: Yellow #FFF891
 }
 .flex-center {
     align-items: center;
-    display: flex;
     justify-content: center;
 }
 .content {
     text-align: center;
+}
+.bg-title {
+  background-color: rgba(247, 237, 218, 0.25);
+  border-radius: 21px;
+}
+.border-rad {
+  border-radius: 21px;
+}
+.bg-pink {
+  background-color: #DC747C;
 }
