@@ -35,15 +35,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <div class="links navbar-links">
-                        <a href="#">Tour</a>
-                        <a href="#">Product</a>
-                        <a href="#">Features</a>
-                        <a href="#">Pricing</a>
+                        <a href="#">Sweets</a>
+                        <a href="{{ url('/search') }}">Search</a>
                         <a href="#">Cart</a>
                     </div>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto links navbar-links">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

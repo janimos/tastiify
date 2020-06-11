@@ -4,7 +4,7 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <!--<h1 class="display-4 font-weight-normal">TASTIIFY</h1>-->
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-title">
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-title shadow-sm">
           <div class="mx-auto my-5">
             <div class="title m-b-md">
                 TASTIIFY
@@ -16,38 +16,36 @@
         </div>
 
         <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-          <div class="bg-pink mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad">
+          <div class="bg-pink mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad shadow-sm">
               <div class="my-3 py-3">
                 <h2 class="display-5">Japan</h2>
-                <p class="lead">And an even wittier subheading.</p>
+                <p class="lead">お菓子</p>
               </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+
           </div>
 
-          <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad">
+          <div class="bg-light-blue mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad shadow-sm">
               <div class="my-3 py-3">
                 <h2 class="display-5">Latvia</h2>
-                <p class="lead">And an even wittier subheading.</p>
+                <p class="lead">Saldumi</p>
               </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+
           </div>
         </div>
 
         <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-          <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad">
+          <div class="bg-light-blue mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad shadow-sm">
               <div class="my-3 py-3">
                 <h2 class="display-5">Russia</h2>
-                <p class="lead">And an even wittier subheading.</p>
+                <p class="lead">Сладости</p>
               </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
           </div>
 
-          <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad">
+          <div class="bg-pink mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden border-rad shadow-sm">
               <div class="my-3 py-3">
                 <h2 class="display-5">Spain</h2>
-                <p class="lead">And an even wittier subheading.</p>
+                <p class="lead">Dulces</p>
               </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
           </div>
         </div>
 
