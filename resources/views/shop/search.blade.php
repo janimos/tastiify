@@ -7,18 +7,59 @@
         <div class="col-md-3">
           <div class="list-group">
             <h3>Country</h3>
-            <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+            <div style="overflow-y: auto; overflow-x: hidden;">
 					    <div class="list-group-item checkbox">
-                <label><input type="checkbox" class="country" value="Japan"> Japan</label>
-                <label><input type="checkbox" class="country" value="Latvia"> Latvia</label>
-                <label><input type="checkbox" class="country" value="Russia"> Russia</label>
-                <label><input type="checkbox" class="country" value="Spain"> Spain</label>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Japan"> Japan</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Latvia"> Latvia</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Russia"> Russia</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Spain"> Spain</label>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-9">
-
+          <div class="row filter_data">
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Japan<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Latvia<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Spain<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Russia<br></p>
+      				</div>
+            </div>
+          </div>
         </div>
       </div>
 
