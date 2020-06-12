@@ -72,3 +72,34 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+.product-body {
+  background-color: #EEF2E6;
+  border-radius: 21px;
+  border-color: rgba(0, 0, 0, 0);
+}
+.product-page-8 {
+  margin-left: 16.4%;
+}
+.product-page-4 {
+  margin-left: 32.8%;
+}
+.product-page-6 {
+  margin-left: 32.6%;
+}
+.add-comment {
+  margin-right: 25px;;
+  margin-top: 25px;
+}
+.right-btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.product-img {
+  float: left;
+  padding: 15px;
+}
+.product-desc {
+  padding: 25px;
+  font-size: 18px;
+}

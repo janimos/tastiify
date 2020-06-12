@@ -10,7 +10,7 @@
                 TASTIIFY
             </div>
             <p class="lead font-weight-normal">
-              The taste of nations
+              Taste of nations
             </p>
           </div>
         </div>

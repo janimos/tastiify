@@ -1814,12 +1814,13 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid #DEE9F3;
+
 }
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 1px solid #DEE9F3;
 }
 
 .table tbody + tbody {
@@ -2789,7 +2790,7 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #38c172;
+  background-color: #8BC092;
   border-color: #38c172;
 }
 
@@ -2871,8 +2872,8 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #212529;
-  background-color: #ffed4a;
-  border-color: #ffed4a;
+  background-color: #FFF891;
+  border-color: #FFF891;
 }
 
 .btn-warning:hover {

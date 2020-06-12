@@ -9,7 +9,7 @@
         </div>
         <div class="keyword">
           <input class="search-field" type="text" id="search" placeholder="Search for products">
-          <input type="submit">
+          <input type="submit" value="Search">
         </div>
       </div>
       <div class="d-box">
@@ -39,7 +39,7 @@
             <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
               <div class="product-box">
       					<img src="" alt="Product" class="img-responsive">
-      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<p align="center"><strong><a href="{{ url('/country/product') }}">Product</a></strong></p>
       					<h4 style="text-align:center;" class="text-danger">Price</h4>
       					<p>Country : Japan<br></p>
       				</div>

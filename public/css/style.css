@@ -205,3 +205,12 @@ button, input, select, textarea {
   float: right;
   margin-right: 277px;
 }
+.user_name{
+  margin-top: 15px;
+    font-size:14px;
+    font-weight: bold;
+    text-align: left;
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}

@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('shop.index');
 });
-
+/*
 Route::get('/test', function () {
     return view('shop.test');
 });
-
+*/
 Route::get('/products', function () {
     return view('shop.search');
 });
@@ -31,6 +31,14 @@ Route::get('/cart', function () {
 
 Route::get('/orders', function () {
     return view('shop.orders');
+});
+
+Route::get('/orders/show', function () {
+    return view('shop.show_order');
+});
+
+Route::get('/country/product', function () {
+    return view('shop.show_product');
 });
 
 Auth::routes();
