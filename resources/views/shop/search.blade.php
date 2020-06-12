@@ -7,12 +7,20 @@
         <div class="col-md-3">
           <div class="list-group">
             <h3>Country</h3>
-            <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+            <div style="overflow-y: auto; overflow-x: hidden;">
 					    <div class="list-group-item checkbox">
-                <label><input type="checkbox" class="country" value="Japan"> Japan</label>
-                <label><input type="checkbox" class="country" value="Latvia"> Latvia</label>
-                <label><input type="checkbox" class="country" value="Russia"> Russia</label>
-                <label><input type="checkbox" class="country" value="Spain"> Spain</label>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Japan"> Japan</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Latvia"> Latvia</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Russia"> Russia</label>
+                </div>
+                <div class="label-item">
+                  <label><input type="checkbox" class="common_selector country" value="Spain"> Spain</label>
+                </div>
               </div>
             </div>
           </div>
