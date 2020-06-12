@@ -36,12 +36,14 @@
                     <!-- Left Side Of Navbar -->
                     <div class="links navbar-links">
                         <a href="#">Sweets</a>
-                        <a href="{{ url('/search') }}">Search</a>
+                        <a href="{{ url('/products') }}">Products</a>
                         <a href="#">Cart</a>
                     </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto links navbar-links">
+                      <li><a class="nav-link" href="#">EN</a></li>
+                      <li><a class="nav-link" href="#">LV</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

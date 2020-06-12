@@ -93,6 +93,7 @@ div.catalog-page {
 .d-box{
   display: block;
   padding: 5%;
+  padding-top: 10px;
   margin-left: 8.2%;
 }
 .col-md-3 {
@@ -196,4 +197,11 @@ button, input, select, textarea {
 .product-bg {
   background-color: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
+}
+.products-title {
+  margin-bottom: 15px;
+}
+.keyword {
+  float: right;
+  margin-right: 277px;
 }

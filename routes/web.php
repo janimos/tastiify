@@ -21,7 +21,7 @@ Route::get('/test', function () {
     return view('shop.test');
 });
 
-Route::get('/search', function () {
+Route::get('/products', function () {
     return view('shop.search');
 });
 

@@ -3,6 +3,15 @@
 @section('content')
 <div class="flex-center position-ref full-height">
     <div class="content">
+      <div class="mx-auto my-5">
+        <div class="title products-title">
+            Products
+        </div>
+        <div class="keyword">
+          <input class="search-field" type="text" id="search" placeholder="Search for products">
+          <input type="submit">
+        </div>
+      </div>
       <div class="d-box">
         <div class="col-md-3">
           <div class="list-group">
