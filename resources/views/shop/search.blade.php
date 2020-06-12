@@ -26,7 +26,40 @@
           </div>
         </div>
         <div class="col-md-9">
-
+          <div class="row filter_data">
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Japan<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Latvia<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Spain<br></p>
+      				</div>
+            </div>
+            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+              <div class="product-box">
+      					<img src="" alt="Product" class="img-responsive">
+      					<p align="center"><strong><a href="#">Product</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">Price</h4>
+      					<p>Country : Russia<br></p>
+      				</div>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -102,17 +102,12 @@ div.catalog-page {
   padding-right: 10px;
   background-color: #fff;
   border-radius: 21px;
-  height: 500px;
 }
 .col-md-9 {
   display: block;
   width: 60%;
-  border: 1px solid #DEE9F3;
   margin-left: 30%;
-  background-color: #fff;
-  border-radius: 21px;
-  min-height: 500px;
-  margin-top: -500px;
+  margin-top: -418px;
 }
 .list-group {
     padding-left: 0;
@@ -189,4 +184,16 @@ button, input, select, textarea {
 }
 .label-item label {
   margin-left: 15px;
+}
+.product-box {
+  border: 1px solid #DEE9F3;
+  border-radius: 21px;
+  padding: 16px;
+  margin-bottom: 16px;
+  height: 250px;
+  background-color: white;
+}
+.product-bg {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
 }
