@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link href="{{ asset('css/product.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cart.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -37,7 +38,8 @@
                     <div class="links navbar-links">
                         <a href="#">Sweets</a>
                         <a href="{{ url('/products') }}">Products</a>
-                        <a href="#">Cart</a>
+                        <a href="{{ url('/cart') }}">Cart</a>
+                        <a href="{{ url('/orders') }}">Orders</a>
                     </div>
 
                     <!-- Right Side Of Navbar -->
