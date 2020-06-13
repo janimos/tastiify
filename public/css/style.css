@@ -237,3 +237,10 @@ button, input, select, textarea {
 .green-warning a:hover {
   color: #8BC092;
 }
+.list-group-item-new {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
