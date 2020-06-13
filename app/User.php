@@ -38,7 +38,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
-class User extends Model
+class Users extends Model
 {
     public function cart(){
         return $this->belongsTo('App\Cart');
