@@ -24,6 +24,18 @@ Route::get('/test', function () {
 Route::get('/products', function () {
     return view('shop.search');
 });
+Route::get('/products/create', function () {
+    return view('shop.admin.add_product');
+});
+Route::get('/products/delete', function () {
+    return view('shop.admin.delete_product');
+});
+Route::get('/products/create', function () {
+    return view('shop.admin.add_product');
+});
+Route::get('/products/edit', function () {
+    return view('shop.admin.edit_product');
+});
 
 Route::get('/cart', function () {
     return view('shop.cart');
@@ -32,13 +44,22 @@ Route::get('/cart', function () {
 Route::get('/orders', function () {
     return view('shop.orders');
 });
-
 Route::get('/orders/show', function () {
     return view('shop.show_order');
 });
 
 Route::get('/country/product', function () {
     return view('shop.show_product');
+});
+Route::get('/country/create', function () {
+    return view('shop.admin.add_country');
+});
+Route::get('/country/delete', function () {
+    return view('shop.admin.delete_country');
+});
+
+Route::get('/admin', function () {
+    return view('shop.admin_pages.panel');
 });
 
 Auth::routes();

@@ -137,7 +137,7 @@ div.catalog-page {
     font-weight: 400;
     cursor: pointer;
 }
-label {
+.label-item label {
   display: block;
   max-width: 100%;
   font-size: 1.5rem;
@@ -148,17 +148,17 @@ label {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox]{
+input[type=checkbox], .checkbox-inline input[type=checkbox]{
     position: absolute;
     margin-top: 4px\9;
     margin-left: -20px;
 }
-input[type=checkbox]{
+input[type=checkbox] .country{
     margin: 4px 0 0;
-    margin-top: 1px\9;
+    margin-top: 1px/9;
     line-height: normal;
 }
-input[type=checkbox] {
+.checkbox input[type=checkbox]{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -168,7 +168,7 @@ input[type=checkbox] {
     -webkit-transform: scale(1.5); /* Safari and Chrome */
     -o-transform: scale(1.5); /* Opera */
     font-size: 1.5rem;
-    margin-top: 3.5%;
+    margin-top: 4.5%;
 }
 button, input, select, textarea {
     font-family: inherit;
@@ -213,4 +213,27 @@ button, input, select, textarea {
 }
 .comments-list .media{
     border-bottom: 1px dotted #ccc;
+}
+.links .admin {
+  color: #8BC092;
+}
+.links .admin:hover {
+  color: #DC747C;
+}
+.admin-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border-bottom: 1px solid #DEE9F3;
+  font-size: 18px;
+}
+.admin-group-item a{
+    color: #636b6f;
+}
+.red-warning a:hover {
+  color: #DC747C;
+}
+.green-warning a:hover {
+  color: #8BC092;
 }

@@ -40,6 +40,7 @@
                         <a href="{{ url('/products') }}">Products</a>
                         <a href="{{ url('/cart') }}">Cart</a>
                         <a href="{{ url('/orders') }}">Orders</a>
+                        <a href="{{ url('/admin') }}" class="admin">Admin</a>
                     </div>
 
                     <!-- Right Side Of Navbar -->
