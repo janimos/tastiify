@@ -9,6 +9,9 @@ class Product extends Model
     public function country(){
         return $this->belongsTo('App\Country');
     }
+    public function description(){
+        return $this->belongsTo('App\ProductDescriptionPhoto');
+    }
     public function comment(){
         return $this->belongsTo('App\ProductComments');
     }
