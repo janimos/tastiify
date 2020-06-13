@@ -10,6 +10,6 @@ class Order extends Model
         return $this->hasMany('App\User');
     }
     public function product(){
-        return $this->belongsTo('App\Order-Products');
+        return $this->belongsTo('App\OrderProducts');
     }
 }

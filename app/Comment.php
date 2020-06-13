@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     public function user(){
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
     public function product(){
-        return $this->belongsTo('App\Product-Comments');
+        return $this->belongsTo('App\ProductComments');
     }
 }

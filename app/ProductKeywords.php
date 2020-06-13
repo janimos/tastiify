@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order-Products extends Model
+class ProductKeywords extends Model
 {
-    public function order(){
-        return $this->hasMany('App\Order');
-    }
     public function product(){
         return $this->hasMany('App\Product');
+    }
+    public function keyword(){
+        return $this->hasMany('App\Keyword');
     }
 }

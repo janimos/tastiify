@@ -21,9 +21,7 @@ Route::get('/test', function () {
     return view('shop.test');
 });
 */
-Route::get('/products', function () {
-    return view('shop.search');
-});
+Route::get('/products', 'ProductController@index');
 Route::get('/products/create', function () {
     return view('shop.admin_pages.add_product');
 });
@@ -48,9 +46,7 @@ Route::get('/orders/show', function () {
     return view('shop.show_order');
 });
 
-Route::get('/country/product', function () {
-    return view('shop.show_product');
-});
+Route::get('/country/product/{product_id}', 'ProductController@show');
 Route::get('/country/create', function () {
     return view('shop.admin_pages.add_country');
 });
@@ -65,3 +61,7 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::patch('/country_create', 'CountryController@create');
+Route::patch('/product_create', 'ProductController@create');
+Route::patch('/comment', 'ProductController@store');

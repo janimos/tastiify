@@ -13,23 +13,25 @@
               <div class="col-md-8">
                   <div class="card">
                       <div class="list-group-item-new">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" method="POST" action="{{"/product_create"}}">
+                            @csrf
+                            {{ method_field('PATCH') }}
                           <div class="form-group row">
                             <label for="make" class="col-md-4 control-label text-md-right">Name</label>
                             <div class="col-md-6">
-                              <input type="text" class="form-control make">
+                              <input type="text" class="form-control make" name="name">
                             </div>
                           </div>
                           <div class="form-group row">
                             <label for="make" class="col-md-4 control-label text-md-right">Price</label>
                             <div class="col-md-6">
-                              <input type="text" class="form-control make">
+                              <input type="text" class="form-control make" name="price">
                             </div>
                           </div>
                           <div class="form-group row">
-                            <label for="make" class="col-md-4 control-label text-md-right">Cuntry</label>
+                            <label for="make" class="col-md-4 control-label text-md-right">Country</label>
                             <div class="col-md-6">
-                              <input type="text" class="form-control make">
+                              <input type="text" class="form-control make" name="country">
                             </div>
                           </div>
                           <div class="form-group row">
@@ -38,6 +40,15 @@
                             </div>
                           </div>
                         </form>
+                          @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                       </div>
                   </div>
               </div>

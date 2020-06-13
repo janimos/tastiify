@@ -18,56 +18,27 @@
             <h3>Country</h3>
             <div style="overflow-y: auto; overflow-x: hidden;">
 					    <div class="list-group-item checkbox">
-                <div class="label-item">
-                  <label><input type="checkbox" class="common_selector country" value="Japan"> Japan</label>
-                </div>
-                <div class="label-item">
-                  <label><input type="checkbox" class="common_selector country" value="Latvia"> Latvia</label>
-                </div>
-                <div class="label-item">
-                  <label><input type="checkbox" class="common_selector country" value="Russia"> Russia</label>
-                </div>
-                <div class="label-item">
-                  <label><input type="checkbox" class="common_selector country" value="Spain"> Spain</label>
-                </div>
+                            @foreach($countries as $c)
+                                <div class="label-item">
+                                <label><input type="checkbox" class="common_selector country" value="{{$c->Name}}"> {{$c->Name}}</label>
+                                </div>
+                            @endforeach
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-9">
           <div class="row filter_data">
+              @foreach($products as $p)
             <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
               <div class="product-box">
       					<img src="" alt="Product" class="img-responsive">
-      					<p align="center"><strong><a href="{{ url('/country/product') }}">Product</a></strong></p>
-      					<h4 style="text-align:center;" class="text-danger">Price</h4>
-      					<p>Country : Japan<br></p>
+      					<p align="center"><strong><a href="{{ url('/country/product/'.$p->id) }}">{{$p->Name}}</a></strong></p>
+      					<h4 style="text-align:center;" class="text-danger">{{$p->price}}</h4>
+      					<p>Country : {{$p->country->Name}}<br></p>
       				</div>
             </div>
-            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
-              <div class="product-box">
-      					<img src="" alt="Product" class="img-responsive">
-      					<p align="center"><strong><a href="#">Product</a></strong></p>
-      					<h4 style="text-align:center;" class="text-danger">Price</h4>
-      					<p>Country : Latvia<br></p>
-      				</div>
-            </div>
-            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
-              <div class="product-box">
-      					<img src="" alt="Product" class="img-responsive">
-      					<p align="center"><strong><a href="#">Product</a></strong></p>
-      					<h4 style="text-align:center;" class="text-danger">Price</h4>
-      					<p>Country : Spain<br></p>
-      				</div>
-            </div>
-            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
-              <div class="product-box">
-      					<img src="" alt="Product" class="img-responsive">
-      					<p align="center"><strong><a href="#">Product</a></strong></p>
-      					<h4 style="text-align:center;" class="text-danger">Price</h4>
-      					<p>Country : Russia<br></p>
-      				</div>
-            </div>
+              @endforeach
           </div>
         </div>
       </div>

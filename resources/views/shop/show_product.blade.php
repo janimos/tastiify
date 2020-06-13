@@ -50,16 +50,20 @@
               </div>
             </div>
               <div class="comments-list">
+                  @foreach($comments as $c)
                 <div class="media">
                   <div class="media-body">
-                    <h4 class="media-heading user_name">Baltej Singh</h4>
-                      <p>Wow! this is really great.</p>
+                    <h4 class="media-heading user_name">{{$c->user->name}}</h4>
+                      <p>{{$c->content}}</p>
                   </div>
                 </div>
+                  @endforeach
             </div>
           </div>
           <div class="product-page-6" id="add-comment">
-            <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+            <form action="{{"/comment"}}" method="post" class="form-horizontal" id="commentForm" role="form">
+                @csrf
+                {{ method_field('PATCH') }}
               <div class="form-group">
                 <label for="email" class="col-sm-3 control-label add-comment"><h4>Leave your comment:</h4></label>
                 <div class="col-sm-6">
@@ -68,6 +72,7 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
+                    <input type="hidden" name="product_id" value="{{$id}}" />
                   <input type="submit" class="btn btn-success btn-circle text-uppercase right-btn" value="Comment">
                 </div>
               </div>

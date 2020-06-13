@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cart-Products extends Model
+class OrderProducts extends Model
 {
-    public function cart(){
-        return $this->hasMany('App\Cart');
+    public function order(){
+        return $this->hasMany('App\Order');
     }
     public function product(){
         return $this->hasMany('App\Product');

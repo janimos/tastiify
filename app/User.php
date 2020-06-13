@@ -48,7 +48,7 @@ class Users extends Model
     }
     public function comment()
     {
-        return $this->belongsTo('App\Comment');
+        return $this->hasMany('App\Comment');
     }  
 }
 
