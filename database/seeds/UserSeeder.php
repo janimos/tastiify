@@ -14,8 +14,9 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         User::create(array('name' => 'Administrator',
-                           'email' => 'admin@tastiify.com', 
+                           'email' => 'admin@tastiify.com',
                            'password' => bcrypt('secret'),
+                           'google_id' => NULL,
                            'role' => 1));
     }
 }

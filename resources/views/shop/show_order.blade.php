@@ -6,7 +6,7 @@
 <div class="container">
   <div class="mx-auto my-5">
     <div class="title" style="text-align: center;">
-        Order Information
+        Order {{ $order->id }} Information
     </div>
   </div>
     <div class="row">
@@ -15,16 +15,17 @@
                 <div class="card-body">
                     <h4>Selected products :</h4>
                     <div class="card-text">
-                      <h5 id="" class="extra ">
-                        (EUR)
-                      </h5>
+                      @foreach($mas as $p => $q)
+                        <h5 id="" class="extra ">
+                          {{ $p }} ({{ $q }} quantity)
+                        </h5>
+                      @endforeach
                     </div>
                     <br>
-                    <h5>Name : </h5>
-                    <h5>Surname : </h5>
-                    <h5>Phone (+371): </h5>
-                    <h5>Shipping address : </h5>
-                    <h5>Total price : </h5>
+
+                    <h5>Name : {{$username}}</h5>
+
+                    <h5>Total price : {{ $order->price }}</h5>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Keyword;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class KeywordController extends Controller
 {
@@ -15,7 +16,9 @@ class KeywordController extends Controller
      */
     public function index()
     {
+      if(Auth::check() && Auth::user()->isAdmin())
         return view ('shop.admin_pages.add_keyword');
+      else return redirect('/');
     }
 
     /**
@@ -25,17 +28,19 @@ class KeywordController extends Controller
      */
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:keywords'
-        ]);
+        if(Auth::check() && Auth::user()->isAdmin()){
+          $validator = Validator::make($request->all(), [
+              'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:keywords'
+          ]);
 
-        if ($validator->fails()) {
-            return redirect('/keyword/create')->withErrors($validator);
-        }
-        $keyword = new Keyword;
-        $keyword->Name=$request->name;
-        $keyword->save();
-        return redirect ('/admin');
+          if ($validator->fails()) {
+              return redirect('/keyword/create')->withErrors($validator);
+          }
+          $keyword = new Keyword;
+          $keyword->Name=$request->name;
+          $keyword->save();
+          return redirect ('/admin');
+        } else return redirect('/');
     }
 
     /**

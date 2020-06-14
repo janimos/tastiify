@@ -25,34 +25,22 @@ Route::get('/products', 'ProductController@index');
 Route::get('/products/create', function () {
     return view('shop.admin_pages.add_product');
 });
-Route::get('/products/delete', function () {
-    return view('shop.admin_pages.delete_product');
-});
+Route::get('/products/delete', 'AdminController@delete_products');
 Route::get('/products/create', 'ProductController@show_create');
 Route::get('/products/edit', 'ProductController@show_edit');
 
-Route::get('/cart', function () {
-    return view('shop.cart');
-});
+Route::get('/cart', 'CartController@show');
 
-Route::get('/orders', function () {
-    return view('shop.orders');
-});
-Route::get('/orders/show', function () {
-    return view('shop.show_order');
-});
+Route::get('/orders', 'CartController@order');
+Route::get('/orders/show/{order_id}','CartController@index');
 
 Route::get('/country/product/{product_id}', 'ProductController@show');
 Route::get('/country/create', function () {
     return view('shop.admin_pages.add_country');
 });
-Route::get('/country/delete', function () {
-    return view('shop.admin_pages.delete_country');
-});
+Route::get('/country/delete', 'AdminController@delete_countries');
 
-Route::get('/admin', function () {
-    return view('shop.admin_pages.panel');
-});
+Route::get('/admin', 'AdminController@index');
 
 Route::get('/keyword/create', 'KeywordController@index');
 Route::patch('/keyword_create', 'KeywordController@create');
@@ -64,6 +52,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::patch('/country_create', 'CountryController@create');
 Route::patch('/product_create', 'ProductController@create');
 Route::patch('/comment', 'ProductController@store');
+Route::patch('/add_to_cart', 'CartController@store');
+Route::patch('/order', 'CartController@create');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToGoogle');
 Route::get('/callback', 'Auth\LoginController@handleGoogleCallback');

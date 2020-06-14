@@ -8,47 +8,35 @@
             Cart
         </div>
       </div>
-      <table id="cart" class="table table-hover table-condensed">
-        <thead>
-        <tr>
-            <th style="width:50%">Product</th>
-            <th style="width:10%">Price</th>
-            <th style="width:8%">Quantity</th>
-            <th style="width:22%" class="text-center">Subtotal</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td data-th="Product">
-                <div class="row">
-                    <div class="col-sm-3 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-                    <div class="col-sm-9 h-product">
-                        <h4 class="nomargin">Product 1</h4>
-                        <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+      <div class="mx-auto my-5">
+          <div class="row justify-content-center">
+              <div class="col-md-8">
+                  <div class="card">
+                      <div class="list-group-item-new">
+                        <form class="form-horizontal" method="POST" action="{{"/order"}}">
+                            @csrf
+                            {{ method_field('PATCH') }}
+                            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
+                                @foreach($products as $p)
+                                <div class="product-box">
+                                  <h4 class="nomargin">{{$p->Name}}</h4>
+                                  {{$p->price}} EUR
+                                  <input type="number" min="1" class="form-control make" name="quantity[]" id="quantity" value="1">
+                                  <input type="hidden" name="product_id[]" value="{{$p->id}}" />
+                                  </div>
+                                @endforeach
+                                </div>
+                          <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                              <input type="submit" class="btn btn-warning" value="Make Order">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </td>
-            <td data-th="Price">$1.99</td>
-            <td data-th="Quantity">
-                <input type="number" class="form-control text-center" value="1">
-            </td>
-            <td data-th="Subtotal" class="text-center">1.99</td>
-
-        </tr>
-
-        </tbody>
-        <tfoot>
-        <tr class="visible-xs">
-            <td class="text-center"><strong>Total 1.99</strong></td>
-        </tr>
-        <tr>
-            <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Create Order</a></td>
-            <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-        </tr>
-        </tfoot>
-    </table>
+              </div>
         <footer class="container py-5">
           <div class="links">
               <a href="https://laravel.com/docs">Docs</a>

@@ -11,8 +11,14 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-body">
+                  @foreach ( $orders as $order )
                   <div class="card-text">
+                    <h4 id="{{ $order->id }}" class="extra">
+                        Order {{ $order->id }} : <a class="btn btn-primary float-right"
+                        href="/orders/show/{{$order->id}}">Show order</a>
+                    </h4><br>
                   </div>
+                  @endforeach
                 </div>
             </div>
         </div>

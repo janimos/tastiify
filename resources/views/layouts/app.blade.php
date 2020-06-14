@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,14 +39,16 @@
                     <div class="links navbar-links">
                         <a href="{{ url('/products') }}">Products</a>
                         <a href="{{ url('/cart') }}">Cart</a>
-                        <a href="{{ url('/orders') }}">Orders</a>
-                        <a href="{{ url('/admin') }}" class="admin">Admin</a>
+                        @if(!Auth::guest())
+                          <a href="{{ url('/orders') }}">Orders</a>
+                        @endif                       
+                        @if ( !Auth::guest() && Auth::user()->isAdmin() )
+                            <a href="{{ url('/admin') }}" class="admin">Admin</a>
+                        @endif
                     </div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto links navbar-links">
-                      <li><a class="nav-link" href="#">EN</a></li>
-                      <li><a class="nav-link" href="#">LV</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

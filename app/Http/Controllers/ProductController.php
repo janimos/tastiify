@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -40,58 +41,47 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name',
-        ]);
+        if (Auth::check()) {
+            if(Auth::user()->isAdmin()){
+                $validator = Validator::make($request->all(), [
+                    'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
+                    'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+                    'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name'
+                ]);
 
-        if ($validator->fails()) {
-            return redirect('/products/create')->withErrors($validator);
+                if ($validator->fails()) {
+                    return redirect('/products/create')->withErrors($validator);
+                }
+                $country = Country::Where('Name','=',$request->country)->get();
+                foreach($country as $c){
+                    $id = $c->id;
+                    break;
+                }
+                $product = new Product;
+                $product->name = $request->name;
+                $product->price = $request->price;
+                $product->country_id=$id;
+                $product->save();
+                $keywords = $request->keywords;
+                foreach ($keywords as $key) {
+                    $product_keyword = new ProductKeywords;
+                    $kk = Keyword::Where('Name','=',$key)->get();
+                    $pp = Product::Where('Name','=', $request->name)->get();
+                    foreach ($kk as $k) {
+                        $k_id = $k->id;
+                    }
+                    foreach ($pp as $p) {
+                        $p_id = $p->id;
+                    }
+                    $product_keyword->keyword_id = $k_id;
+                    $product_keyword->product_id = $p_id;
+                    $product_keyword->save();
+                }
+                return redirect('/admin');
+            }
+            else return redirect ('/');
         }
-        $country = Country::Where('Name','=',$request->country)->get();
-        foreach($country as $c){
-            $id = $c->id;
-            break;
-        }
-
-        $keywords = $request->keywords;
-
-        $product = new Product;
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->country_id=$id;
-        $product->save();
-
-        foreach ($keywords as $key) {
-          $product_keyword = new ProductKeywords;
-          $kk = Keyword::Where('Name','=',$key)->get();
-          $pp = Product::Where('Name','=', $request->name)->get();
-          foreach ($kk as $k) {
-            $k_id = $k->id;
-          }
-          foreach ($pp as $p) {
-            $p_id = $p->id;
-          }
-          $product_keyword->keyword_id = $k_id;
-          $product_keyword->product_id = $p_id;
-          $product_keyword->save();
-        }
-/*
-        $fileName = null;
-        if ($request->hasFile('upload')) {
-            $file = $request->file('upload');
-            $fileName = time() . '.' . $request->file('upload')->getClientOriginalExtension();
-            $path = $request->file('upload')->move(public_path('images'), $fileName);
-        }
-        ProductDescriptionPhoto::create(array(
-            'product_id' => $p_id,
-            'description' => '',
-            'image' => file_get_contents($path),
-        ));
-*/
-
-        return redirect('/admin');
+        else return redirect('/login');
     }
 
     /**
@@ -151,19 +141,23 @@ class ProductController extends Controller
 
     public function show_create()
     {
+      if(Auth::check() && Auth::user()->isAdmin()){
         $keywords = Keyword::all();
         if($keywords->count()==0){
             $keywords = NULL;
         }
         return view('shop.admin_pages.add_product', ['keywords' => $keywords]);
+      } else return redirect('/');
     }
     public function show_edit()
     {
+      if(Auth::check() && Auth::user()->isAdmin()){
         $keywords = Keyword::all();
         if($keywords->count()==0){
             $keywords = NULL;
         }
         return view('shop.admin_pages.edit_product', ['keywords' => $keywords]);
+      } else return redirect('/');
     }
 
     /**
