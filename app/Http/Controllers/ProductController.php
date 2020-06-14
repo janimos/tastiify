@@ -37,26 +37,34 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
-            'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/products/create')->withErrors($validator);
+        if (Auth::check()) {
+            if(Auth::user()->isAdmin()){
+                $validator = Validator::make($request->all(), [
+                    'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
+                    'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
+                    'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name'
+                ]);
+                
+                if ($validator->fails()) {
+                    return redirect('/products/create')->withErrors($validator);
+                }
+                $country = Country::Where('Name','=',$request->country)->get();
+                foreach($country as $c){
+                    $id = $c->id;
+                    break;
+                }
+                $product = new Product;
+                $product->name = $request->name;
+                $product->price = $request->price;
+                $product->country_id=$id;
+                $product->save();
+                $product->cart_products_id = $product->id;
+                $product->save();
+                return redirect('/admin');
+            }
+            else return redirect ('/');
         }
-        $country = Country::Where('Name','=',$request->country)->get();
-        foreach($country as $c){
-            $id = $c->id;
-            break;
-        }
-        $product = new Product;
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->country_id=$id;
-        $product->save();
-        return redirect('/admin');
+        else return redirect('/login');
     }
 
     /**

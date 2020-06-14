@@ -1,7 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script type="application/javascript">
+    function calc(){
+        var quantity = $("#quantity").val();
+        @foreach ($product as $p) var price = {{ $p->price }} @endforeach;
+        var total = quantity*price;
+        document.getElementById("total-price").innerHTML = "Total price: "+total.toFixed(2)+" EUR";
+    }
+    function validate(){
+        var quantity = $("#quantity").val();
+        calc();
+    }
+    $(document).ready(function () {
+        $(".make").change(function () {
+            validate();
+        });
+    });
+</script>
 <div class="flex-center position-ref full-height">
     <div class="content">
       <div class="mx-auto my-5">
@@ -49,27 +65,28 @@
                   <div class="col-md-8">
                       <div class="card">
                           <div class="list-group-item-new">
-                            <form class="form-horizontal" method="POST" action="{{"/keyword_create"}}">
+                            <form class="form-horizontal" method="POST" action="{{"/add_to_cart"}}">
                                 @csrf
                                 {{ method_field('PATCH') }}
                                 <div class="form-group row">
-                                  <label for="make" class="col-md-4 control-label text-md-right">Price: </label>
+                                  <label for="make" class="col-md-4 control-label text-md-right">Price: @foreach ($product as $p) {{ $p->price }} @endforeach EUR</label>
                                   <div class="col-md-6 offset-md-4">
                                   </div>
                                 </div>
                               <div class="form-group row">
                                 <label for="make" class="col-md-4 control-label text-md-right">Quantity: </label>
                                 <div class="col-md-6">
-                                  <input type="number" class="form-control make" name="quantity" value="1">
+                                  <input type="number" min="1" class="form-control make" name="quantity" id="quantity" value="1">
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="make" class="col-md-4 control-label text-md-right">Total price: </label>
+                                <h6 for="make" class="col-md-4 control-label text-md-right"><p id="total-price">Total price: @foreach ($product as $p) {{ $p->price }} @endforeach EUR</p></h6>
                                 <div class="col-md-6 offset-md-4">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
+                                    <input type="hidden" name="product_id" value="{{$id}}" />
                                   <input type="submit" class="btn btn-warning">
                                 </div>
                               </div>

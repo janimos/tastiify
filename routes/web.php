@@ -35,16 +35,12 @@ Route::get('/products/edit', function () {
     return view('shop.admin_pages.edit_product');
 });
 
-Route::get('/cart', function () {
-    return view('shop.cart');
-});
+Route::get('/cart', 'CartController@show');
 
 Route::get('/orders', function () {
     return view('shop.orders');
 });
-Route::get('/orders/show', function () {
-    return view('shop.show_order');
-});
+Route::get('/orders/show/{order_id}','CartController@index');
 
 Route::get('/country/product/{product_id}', 'ProductController@show');
 Route::get('/country/create', function () {
@@ -68,6 +64,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::patch('/country_create', 'CountryController@create');
 Route::patch('/product_create', 'ProductController@create');
 Route::patch('/comment', 'ProductController@store');
+Route::patch('/add_to_cart', 'CartController@store');
+Route::patch('/order', 'CartController@create');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToGoogle');
 Route::get('/callback', 'Auth\LoginController@handleGoogleCallback');
