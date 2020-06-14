@@ -45,14 +45,13 @@
           					<p align="center"><strong>{{$p->Name}}</strong></p>
                   </a>
         					<h4 style="text-align:center;" class="text-danger">{{$p->price}} (EUR)</h4>
-        					<p>Country : {{$p->country->Name}}<br></p>
-                    <a href="#" class="btn btn-success" role="button"> Add to cart</a>
+        					<p>Country : {{$p->country->Name}}<br></p>                  
         				</div>
               </div>
             @endforeach
               @endisset
               @empty($products)
-                     <p>No products yet.</p>                
+                     <p>No products yet.</p>
               @endempty
           </div>
         </div>

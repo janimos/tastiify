@@ -8,7 +8,7 @@
         <div class="title products-title">
             @foreach($product as $p)
               {{ $p->Name }}
-            @endforeach  
+            @endforeach
         </div>
       </div>
       <div class="mx-auto my-5">
@@ -43,6 +43,50 @@
                   amet.</p>
               </div>
             </div>
+          </div>
+          <div class="mx-auto my-5">
+              <div class="row justify-content-center">
+                  <div class="col-md-8">
+                      <div class="card">
+                          <div class="list-group-item-new">
+                            <form class="form-horizontal" method="POST" action="{{"/keyword_create"}}">
+                                @csrf
+                                {{ method_field('PATCH') }}
+                                <div class="form-group row">
+                                  <label for="make" class="col-md-4 control-label text-md-right">Price: </label>
+                                  <div class="col-md-6 offset-md-4">
+                                  </div>
+                                </div>
+                              <div class="form-group row">
+                                <label for="make" class="col-md-4 control-label text-md-right">Quantity: </label>
+                                <div class="col-md-6">
+                                  <input type="number" class="form-control make" name="quantity" value="1">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="make" class="col-md-4 control-label text-md-right">Total price: </label>
+                                <div class="col-md-6 offset-md-4">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                  <input type="submit" class="btn btn-warning">
+                                </div>
+                              </div>
+                            </form>
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
         </div>
         <div class="comments">
