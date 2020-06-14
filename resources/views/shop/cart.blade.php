@@ -11,26 +11,27 @@
       </div>
       <div class="mx-auto my-5">
           <div class="row justify-content-center">
-              <div class="col-md-8">
+              <div class="col-md-4">
                   <div class="card">
                       <div class="list-group-item-new">
                         @isset($products)
                         <form class="form-horizontal" method="POST" action="{{"/order"}}">
                             @csrf
                             {{ method_field('PATCH') }}
-                            <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
-                                @foreach($products as $p)
-                                <div class="product-box">
+                            @foreach($products as $p)
+                            <div class="product-bg">
+                                <div class="product-box" style="height: 160px;">
                                   <h4 class="nomargin">{{$p->Name}}</h4>
                                   {{$p->price}} EUR
+                                  <br>Quantity
                                   <input type="number" min="1" class="form-control make" name="quantity[]" id="quantity" value="1">
                                   <input type="hidden" name="product_id[]" value="{{$p->id}}" />
                                   </div>
-                                @endforeach
                             </div>
+                            @endforeach
                             <div class="form-group row">
                               <div class="col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-warning" value="Make Order">
+                                <input type="submit" style="margin-right: 38%;" class="btn btn-warning" value="Make Order">
                               </div>
                             </div>
                         </form>

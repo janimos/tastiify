@@ -94,19 +94,6 @@ class ProductController extends Controller
                 $var->product_id = $p_id;
                 $var->save();
 
-/*
-                $fileName = null;
-                if ($request->hasFile('upload')) {
-                    $file = $request->file('upload');
-                    $fileName = time() . '.' . $request->file('upload')->getClientOriginalExtension();
-                    $path = $request->file('upload')->move(public_path('images'), $fileName);
-                }
-                ProductDescriptionPhoto::create(array(
-                    'product_id' => $p_id,
-                    'description' => $request->description,
-                    'image' => file_get_contents($path),
-                ));
-*/
                 return redirect('/admin');
             }
             else return redirect ('/');

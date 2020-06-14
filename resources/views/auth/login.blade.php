@@ -67,15 +67,9 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                                <div class="container">
-    <div class="row">
-        <div class="col-md-12 row-block">
-            <a class="btn btn-lg btn-primary btn-block" href="{{ url('/redirect') }}">
-                <strong>Login With Google</strong>
-            </a>
-        </div>
-    </div>
-</div>
+                                <a class="btn btn-lg btn-warning btn-block col-md-8" style="font-size: 12px;" href="{{ url('/redirect') }}">
+                                    Login With Google
+                                </a>
                             </div>
                         </div>
                     </form>

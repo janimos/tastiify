@@ -37,17 +37,14 @@
           </div>
           <div class="mx-auto my-5">
               <div class="row justify-content-center">
-                  <div class="col-md-8">
-                      <div class="card">
-                          <div class="list-group-item-new">
                             <form class="form-horizontal" method="POST" action="{{"/add_to_cart"}}">
                                 @csrf
                                 {{ method_field('PATCH') }}
-                                <div class="form-group row">
-                                  <label for="make" class="col-md-4 control-label text-md-right">Price: @foreach ($product as $p) {{ $p->price }} @endforeach EUR</label>
-                                </div>
+                                  <label for="make" class="control-label text-md-right">
+                                    Price: @foreach ($product as $p) {{ $p->price }} @endforeach EUR
+                                  </label>
                               <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6" style="margin-left: 15px;">
                                     <input type="hidden" name="product_id" value="{{$id}}" />
                                   <input type="submit" class="btn btn-warning">
                                 </div>
@@ -62,9 +59,6 @@
                                 </ul>
                             </div>
                             @endif
-                          </div>
-                      </div>
-                  </div>
               </div>
           </div>
         </div>
@@ -99,8 +93,8 @@
             <form action="{{"/comment"}}" method="post" class="form-horizontal" id="commentForm" role="form">
               @csrf
               {{ method_field('PATCH') }}
-              <div class="form-group">
-                <label class="col-sm-3 control-label add-comment"><h4>Leave your comment:</h4></label>
+              <div class="form-group" style="text-align: left;">
+                <label class="col-sm-3 control-label add-comment" ><h4>Leave your comment:</h4></label>
                 <div class="col-sm-6">
                   <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
                 </div>
