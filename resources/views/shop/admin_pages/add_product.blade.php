@@ -13,7 +13,7 @@
               <div class="col-md-8">
                   <div class="card">
                       <div class="list-group-item-new">
-                        <form class="form-horizontal" method="POST" action="{{"/product_create"}}">
+                        <form style="margin-top: 20px;" class="form-horizontal" method="POST" action="{{"/product_create"}}" enctype="multipart/form-data">
                             @csrf
                             {{ method_field('PATCH') }}
                           <div class="form-group row">
@@ -32,6 +32,28 @@
                             <label for="make" class="col-md-4 control-label text-md-right">Country</label>
                             <div class="col-md-6">
                               <input type="text" class="form-control make" name="country">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="make" class="col-md-4 control-label text-md-right">Keywords</label>
+                            <div class="col-md-6">
+                              <select size="3" multiple style="width: 100%;">
+                                <option value="1">key</option>
+                                <option value="1">key2</option>
+                                <option value="1">key3</option>
+                                <option value="1">key4</option>
+                                <option value="1">key</option>
+                                <option value="1">key2</option>
+                                <option value="1">key3</option>
+                                <option value="1">key4</option>
+                              </select>
+                              <p style="font-size: 9px;">Hold Ctrl or Command to select multiple keywords</p>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="make" class="col-md-4 control-label text-md-right">Image</label>
+                            <div class="col-md-6">
+                              <input type="file" name="uploadfile" class="form-control make btn">
                             </div>
                           </div>
                           <div class="form-group row">
