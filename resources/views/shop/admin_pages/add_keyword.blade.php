@@ -5,7 +5,7 @@
     <div class="content">
       <div class="mx-auto my-5">
         <div class="title products-title">
-            Edit product
+            Create keyword
         </div>
       </div>
       <div class="container">
@@ -13,33 +13,30 @@
               <div class="col-md-8">
                   <div class="card">
                       <div class="list-group-item-new">
-                        <form class="form-horizontal">
-                          @csrf
-                          {{ method_field('PATCH') }}
+                        <form class="form-horizontal" method="POST" action="{{"/keyword_create"}}">
+                            @csrf
+                            {{ method_field('PATCH') }}
                           <div class="form-group row">
-                            <label for="make" class="col-md-4 control-label text-md-right">Product name</label>
+                            <label for="make" class="col-md-4 control-label text-md-right">Keyword</label>
                             <div class="col-md-6">
-                              <input type="text" class="form-control make">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="make" class="col-md-4 control-label text-md-right">New price</label>
-                            <div class="col-md-6">
-                              <input type="text" class="form-control make">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="make" class="col-md-4 control-label text-md-right">New country</label>
-                            <div class="col-md-6">
-                              <input type="text" class="form-control make">
+                              <input type="text" class="form-control make" name="name">
                             </div>
                           </div>
                           <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                              <input type="submit" class="btn btn-warning" value="Edit">
+                              <input type="submit" class="btn btn-warning">
                             </div>
                           </div>
                         </form>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                       </div>
                   </div>
               </div>

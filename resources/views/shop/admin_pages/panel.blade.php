@@ -17,6 +17,7 @@
                        <li class="admin-group-item green-warning"><a href="http://tastiify.com/products/create">Create product</a></li>
                        <li class="admin-group-item green-warning"><a href="http://tastiify.com/country/create">Create country</a></li>
                        <li class="admin-group-item green-warning"><a href="http://tastiify.com/products/edit">Edit product</a></li>
+                       <li class="admin-group-item green-warning"><a href="http://tastiify.com/keyword/create">Create keyword</a></li>
                        <li class="admin-group-item red-warning"><a href="http://tastiify.com/products/delete">Delete product</a></li>
                        <li class="admin-group-item red-warning"><a href="http://tastiify.com/country/delete">Delete country</a></li>
                     </ul>
@@ -24,5 +25,5 @@
             </div>
         </div>
     </div>
-  </div>  
+  </div>
 @endsection

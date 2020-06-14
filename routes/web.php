@@ -58,6 +58,10 @@ Route::get('/admin', function () {
     return view('shop.admin_pages.panel');
 });
 
+Route::get('/keyword/create', function () {
+    return view('shop.admin_pages.add_keyword');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
