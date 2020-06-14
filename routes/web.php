@@ -69,5 +69,5 @@ Route::patch('/country_create', 'CountryController@create');
 Route::patch('/product_create', 'ProductController@create');
 Route::patch('/comment', 'ProductController@store');
 
-Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
-Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+Route::get('/redirect', 'Auth\LoginController@redirectToGoogle');
+Route::get('/callback', 'Auth\LoginController@handleGoogleCallback');

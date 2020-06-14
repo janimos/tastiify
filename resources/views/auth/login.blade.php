@@ -70,7 +70,7 @@
                                 <div class="container">
     <div class="row">
         <div class="col-md-12 row-block">
-            <a class="btn btn-lg btn-primary btn-block" href="{{ url('auth/google') }}">
+            <a class="btn btn-lg btn-primary btn-block" href="{{ url('/redirect') }}">
                 <strong>Login With Google</strong>
             </a>
         </div>
