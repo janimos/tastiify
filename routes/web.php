@@ -58,9 +58,8 @@ Route::get('/admin', function () {
     return view('shop.admin_pages.panel');
 });
 
-Route::get('/keyword/create', function () {
-    return view('shop.admin_pages.add_keyword');
-});
+Route::get('/keyword/create', 'KeywordController@index');
+Route::patch('/keyword_create', 'KeywordController@create');
 
 Auth::routes();
 
@@ -69,3 +68,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::patch('/country_create', 'CountryController@create');
 Route::patch('/product_create', 'ProductController@create');
 Route::patch('/comment', 'ProductController@store');
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');

@@ -53,6 +53,7 @@
               </div>
             </div>
               <div class="comments-list">
+                  @isset($comments)
                 @foreach($comments as $c)
                   <div class="media">
                     <div class="media-body">
@@ -61,6 +62,14 @@
                     </div>
                   </div>
                 @endforeach
+                  @endisset
+                  @empty($comments)
+                    <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading">No comments yet.</h4>
+                    </div>
+                  </div>
+                @endempty
             </div>
           </div>
           <div class="product-page-6" id="add-comment">
@@ -80,6 +89,15 @@
                 </div>
               </div>
             </form>
+              @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
           </div>
         </div>
       </div>

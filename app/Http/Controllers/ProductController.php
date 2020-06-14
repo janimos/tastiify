@@ -20,7 +20,13 @@ class ProductController extends Controller
     public function index()
     {
         $countries = Country::all();
+        if($countries->count()==0){
+            $countries = NULL;
+        };
         $products = Product::all();
+        if($products->count()==0){
+            $products = NULL;
+        }
         return view('shop.search',['countries'=>$countries,'products'=>$products]);
     }
 
@@ -62,6 +68,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()) {
+            $validator = Validator::make($request->all(), [
+                'addComment' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                return redirect('/country/product/'.$request->product_id)->withErrors($validator);
+            }
             $user_id = Auth::id();
             $product_id = $request->product_id;
             $addComment = $request->addComment;
@@ -95,6 +108,9 @@ class ProductController extends Controller
             $collection->push($pp->comment_id);
         }
         $comments = Comment::WhereIn('id',$collection)->get();
+        if($comments->count()==0){
+            $comments = NULL;
+        }
         return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments]);
     }
 
