@@ -7,6 +7,8 @@ use App\Country;
 use App\Product;
 use App\Comment;
 use App\ProductComments;
+use App\Keyword;
+use App\ProductKeywords;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,8 +60,21 @@ class ProductController extends Controller
                 $product->price = $request->price;
                 $product->country_id=$id;
                 $product->save();
-                $product->cart_products_id = $product->id;
-                $product->save();
+                $keywords = $request->keywords;
+                foreach ($keywords as $key) {
+                    $product_keyword = new ProductKeywords;
+                    $kk = Keyword::Where('Name','=',$key)->get();
+                    $pp = Product::Where('Name','=', $request->name)->get();
+                    foreach ($kk as $k) {
+                        $k_id = $k->id;
+                    }
+                    foreach ($pp as $p) {
+                        $p_id = $p->id;
+                    }
+                    $product_keyword->keyword_id = $k_id;
+                    $product_keyword->product_id = $p_id;
+                    $product_keyword->save();
+                }
                 return redirect('/admin');
             }
             else return redirect ('/');
@@ -120,6 +135,23 @@ class ProductController extends Controller
             $comments = NULL;
         }
         return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments]);
+    }
+
+    public function show_create()
+    {
+        $keywords = Keyword::all();
+        if($keywords->count()==0){
+            $keywords = NULL;
+        }
+        return view('shop.admin_pages.add_product', ['keywords' => $keywords]);
+    }
+    public function show_edit()
+    {
+        $keywords = Keyword::all();
+        if($keywords->count()==0){
+            $keywords = NULL;
+        }
+        return view('shop.admin_pages.edit_product', ['keywords' => $keywords]);
     }
 
     /**

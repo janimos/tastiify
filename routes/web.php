@@ -28,12 +28,8 @@ Route::get('/products/create', function () {
 Route::get('/products/delete', function () {
     return view('shop.admin_pages.delete_product');
 });
-Route::get('/products/create', function () {
-    return view('shop.admin_pages.add_product');
-});
-Route::get('/products/edit', function () {
-    return view('shop.admin_pages.edit_product');
-});
+Route::get('/products/create', 'ProductController@show_create');
+Route::get('/products/edit', 'ProductController@show_edit');
 
 Route::get('/cart', 'CartController@show');
 
