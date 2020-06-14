@@ -115,7 +115,9 @@ class CartController extends Controller
     {
         if (Auth::check()) {
             $products=session()->get('products');
-            $product = Product::WhereIn('id',$products)->get();
+            if($products == NULL) $product = NULL;
+            else $product = Product::WhereIn('id',$products)->get();
+
             return view ('shop.cart',['products'=>$product]);
         }
         else return redirect('/login');

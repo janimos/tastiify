@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="flex-center position-ref full-height">
     <div class="content">
       <div class="mx-auto my-5">
@@ -13,6 +14,7 @@
               <div class="col-md-8">
                   <div class="card">
                       <div class="list-group-item-new">
+                        @isset($products)
                         <form class="form-horizontal" method="POST" action="{{"/order"}}">
                             @csrf
                             {{ method_field('PATCH') }}
@@ -25,13 +27,19 @@
                                   <input type="hidden" name="product_id[]" value="{{$p->id}}" />
                                   </div>
                                 @endforeach
-                                </div>
-                          <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                              <input type="submit" class="btn btn-warning" value="Make Order">
                             </div>
-                          </div>
+                            <div class="form-group row">
+                              <div class="col-md-6 offset-md-4">
+                                <input type="submit" class="btn btn-warning" value="Make Order">
+                              </div>
+                            </div>
                         </form>
+                        @endisset
+                        @empty($products)
+                          <div class="title products-title">
+                              Empty cart
+                          </div>
+                        @endempty
                       </div>
                     </div>
                   </div>
@@ -51,4 +59,5 @@
         </footer>
     </div>
 </div>
+
 @endsection

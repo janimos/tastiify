@@ -41,11 +41,10 @@
               <div class="col-sm-4 col-lg-4 col-md-3 product-bg">
                 <div class="product-box">
                   <a href="{{ url('/country/product/'.$p->id) }}">
-          					<img src="" alt="{{$p->Name}}" class="img-responsive">
           					<p align="center"><strong>{{$p->Name}}</strong></p>
                   </a>
         					<h4 style="text-align:center;" class="text-danger">{{$p->price}} (EUR)</h4>
-        					<p>Country : {{$p->country->Name}}<br></p>                  
+        					<p>Country : {{$p->country->Name}}<br></p>
         				</div>
               </div>
             @endforeach

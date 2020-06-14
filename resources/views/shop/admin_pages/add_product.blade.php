@@ -51,6 +51,12 @@
                               <input type="file" name="upload" class="form-control make btn">
                             </div>
                           </div>
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label add-comment"><h4>Description</h4></label>
+                            <div class="col-sm-6">
+                              <textarea class="form-control" name="description" id="description" rows="5"></textarea>
+                            </div>
+                          </div>
                           <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                               <input type="submit" class="btn btn-warning">

@@ -44,15 +44,11 @@ class User extends Authenticatable
 }
 class Users extends Model
 {
-    public function cart(){
-        return $this->belongsTo('App\Cart');
-    }
     public function order(){
         return $this->belongsTo('App\Order');
     }
     public function comment()
     {
         return $this->hasMany('App\Comment');
-    }  
+    }
 }
-

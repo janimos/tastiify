@@ -12,6 +12,10 @@ use App\ProductKeywords;
 use App\ProductDescriptionPhoto;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Response;
+use Image;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -46,7 +50,9 @@ class ProductController extends Controller
                 $validator = Validator::make($request->all(), [
                     'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
                     'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-                    'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name'
+                    'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name',
+                    'description' => 'required|string|max:2000',
+                    'upload' => 'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048',
                 ]);
 
                 if ($validator->fails()) {
@@ -77,6 +83,30 @@ class ProductController extends Controller
                     $product_keyword->product_id = $p_id;
                     $product_keyword->save();
                 }
+
+                $file = $request->file('upload');
+                $img = Image::make($file);
+                Response::make($img->encode('jpeg'));
+
+                $var = new ProductDescriptionPhoto;
+                $var->image = $img;
+                $var->description = $request->description;
+                $var->product_id = $p_id;
+                $var->save();
+
+/*
+                $fileName = null;
+                if ($request->hasFile('upload')) {
+                    $file = $request->file('upload');
+                    $fileName = time() . '.' . $request->file('upload')->getClientOriginalExtension();
+                    $path = $request->file('upload')->move(public_path('images'), $fileName);
+                }
+                ProductDescriptionPhoto::create(array(
+                    'product_id' => $p_id,
+                    'description' => $request->description,
+                    'image' => file_get_contents($path),
+                ));
+*/
                 return redirect('/admin');
             }
             else return redirect ('/');
@@ -136,7 +166,17 @@ class ProductController extends Controller
         if($comments->count()==0){
             $comments = NULL;
         }
-        return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments]);
+        $description = ProductDescriptionPhoto::Where('product_id',$id)->get();
+      //dd($description->count());
+        if($description->count() == 0) $desc = NULL;
+        else {
+          foreach ($description as $key) {
+            $desc = $key;
+            break;
+          }
+        }
+        //dd($desc);
+        return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments, 'desc'=>$desc]);
     }
 
     public function show_create()

@@ -13,7 +13,7 @@ class CreateProductDescriptionPhoto extends Migration
      */
     public function up()
     {
-        Schema::create('product_description_photo', function (Blueprint $table) {
+        Schema::create('product_description_photos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('product_id')->constrained();
@@ -29,6 +29,6 @@ class CreateProductDescriptionPhoto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_description_photo');
+        Schema::dropIfExists('product_description_photos');
     }
 }
