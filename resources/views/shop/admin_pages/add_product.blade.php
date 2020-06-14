@@ -48,7 +48,7 @@
                           <div class="form-group row">
                             <label for="make" class="col-md-4 control-label text-md-right">Image</label>
                             <div class="col-md-6">
-                              <input type="file" name="uploadfile" class="form-control make btn">
+                              <input type="file" name="upload" class="form-control make btn">
                             </div>
                           </div>
                           <div class="form-group row">

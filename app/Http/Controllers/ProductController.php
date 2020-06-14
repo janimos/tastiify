@@ -9,6 +9,7 @@ use App\Comment;
 use App\ProductComments;
 use App\Keyword;
 use App\ProductKeywords;
+use App\ProductDescriptionPhoto;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,7 +43,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|regex:/^[a-zA-Z ]+$/|unique:products',
             'price' => 'required|regex:/^\d+(\.\d{1,2})?$/',
-            'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name'
+            'country' => 'required|regex:/^[a-zA-Z ]+$/|exists:countries,name',
         ]);
 
         if ($validator->fails()) {
@@ -76,6 +77,19 @@ class ProductController extends Controller
           $product_keyword->product_id = $p_id;
           $product_keyword->save();
         }
+/*
+        $fileName = null;
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
+            $fileName = time() . '.' . $request->file('upload')->getClientOriginalExtension();
+            $path = $request->file('upload')->move(public_path('images'), $fileName);
+        }
+        ProductDescriptionPhoto::create(array(
+            'product_id' => $p_id,
+            'description' => '',
+            'image' => file_get_contents($path),
+        ));
+*/
 
         return redirect('/admin');
     }
