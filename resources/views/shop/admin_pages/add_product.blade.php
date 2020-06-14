@@ -37,15 +37,10 @@
                           <div class="form-group row">
                             <label for="make" class="col-md-4 control-label text-md-right">Keywords</label>
                             <div class="col-md-6">
-                              <select size="3" multiple style="width: 100%;">
-                                <option value="1">key</option>
-                                <option value="1">key2</option>
-                                <option value="1">key3</option>
-                                <option value="1">key4</option>
-                                <option value="1">key</option>
-                                <option value="1">key2</option>
-                                <option value="1">key3</option>
-                                <option value="1">key4</option>
+                              <select size="3" name="keywords[]" multiple style="width: 100%;">
+                                @foreach($keywords as $key)
+                                  <option value="{{ $key->Name }}">{{ $key->Name }}</option>
+                                @endforeach
                               </select>
                               <p style="font-size: 9px;">Hold Ctrl or Command to select multiple keywords</p>
                             </div>
