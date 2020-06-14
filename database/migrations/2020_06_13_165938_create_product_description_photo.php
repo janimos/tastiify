@@ -18,7 +18,7 @@ class CreateProductDescriptionPhoto extends Migration
             $table->timestamps();
             $table->foreignId('product_id')->constrained();
             $table->string('description',2000)->nullable();
-            $table->string('photo',200)->nullable();
+            $table->binary('image')->nullable();
         });
     }
 
