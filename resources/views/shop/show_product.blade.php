@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="flex-center position-ref full-height">
     <div class="content">
       <div class="mx-auto my-5">
         <div class="title products-title">
-            Product Name
+            @foreach($product as $p)
+              {{ $p->Name }}
+            @endforeach  
         </div>
       </div>
       <div class="mx-auto my-5">
@@ -50,22 +53,22 @@
               </div>
             </div>
               <div class="comments-list">
-                  @foreach($comments as $c)
-                <div class="media">
-                  <div class="media-body">
-                    <h4 class="media-heading user_name">{{$c->user->name}}</h4>
+                @foreach($comments as $c)
+                  <div class="media">
+                    <div class="media-body">
+                      <h4 class="media-heading user_name">{{$c->user->name}}</h4>
                       <p>{{$c->content}}</p>
+                    </div>
                   </div>
-                </div>
-                  @endforeach
+                @endforeach
             </div>
           </div>
           <div class="product-page-6" id="add-comment">
             <form action="{{"/comment"}}" method="post" class="form-horizontal" id="commentForm" role="form">
-                @csrf
-                {{ method_field('PATCH') }}
+              @csrf
+              {{ method_field('PATCH') }}
               <div class="form-group">
-                <label for="email" class="col-sm-3 control-label add-comment"><h4>Leave your comment:</h4></label>
+                <label class="col-sm-3 control-label add-comment"><h4>Leave your comment:</h4></label>
                 <div class="col-sm-6">
                   <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
                 </div>
@@ -94,4 +97,5 @@
         </footer>
     </div>
 </div>
+
 @endsection

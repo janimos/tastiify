@@ -36,7 +36,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <div class="links navbar-links">
-                        <a href="#">Sweets</a>
                         <a href="{{ url('/products') }}">Products</a>
                         <a href="{{ url('/cart') }}">Cart</a>
                         <a href="{{ url('/orders') }}">Orders</a>

@@ -42,9 +42,9 @@ class ProductController extends Controller
         }
         $country = Country::Where('Name','=',$request->country)->get();
         foreach($country as $c){
-                        $id = $c->id;
-                        break;
-                    }
+            $id = $c->id;
+            break;
+        }
         $product = new Product;
         $product->name = $request->name;
         $product->price = $request->price;
@@ -88,7 +88,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::Where('id','=',$id)->get();
+        $product = Product::Where('id',$id)->get();
         $pc = ProductComments::Where('product_id','=',$id)->get();
         $collection = collect([]);
         foreach($pc as $pp){
