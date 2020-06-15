@@ -53,7 +53,7 @@
                           </div>
                           <div class="form-group">
                             <label class="col-sm-3 control-label add-comment"><h4>Description</h4></label>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6-max" >
                               <textarea class="form-control" name="description" id="description" rows="5"></textarea>
                             </div>
                           </div>

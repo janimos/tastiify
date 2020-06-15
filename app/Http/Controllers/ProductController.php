@@ -145,26 +145,29 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::Where('id',$id)->get();
-        $pc = ProductComments::Where('product_id','=',$id)->get();
-        $collection = collect([]);
-        foreach($pc as $pp){
-            $collection->push($pp->comment_id);
-        }
-        $comments = Comment::WhereIn('id',$collection)->get();
-        if($comments->count()==0){
-            $comments = NULL;
-        }
-        $description = ProductDescriptionPhoto::Where('product_id',$id)->get();
-      //dd($description->count());
-        if($description->count() == 0) $desc = NULL;
-        else {
-          foreach ($description as $key) {
-            $desc = $key;
-            break;
+        if($product->count() > 0){
+          $pc = ProductComments::Where('product_id','=',$id)->get();
+          $collection = collect([]);
+          foreach($pc as $pp){
+              $collection->push($pp->comment_id);
           }
+          $comments = Comment::WhereIn('id',$collection)->get();
+          if($comments->count()==0){
+              $comments = NULL;
+          }
+          $description = ProductDescriptionPhoto::Where('product_id',$id)->get();
+        //dd($description->count());
+          if($description->count() == 0) $desc = NULL;
+          else {
+            foreach ($description as $key) {
+              $desc = $key;
+              break;
+            }
+          }
+          //dd($desc);
+          return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments, 'desc'=>$desc]);
         }
-        //dd($desc);
-        return view('shop.show_product',['id'=>$id,'product'=>$product,'comments'=>$comments, 'desc'=>$desc]);
+        else return redirect('/');
     }
 
     public function show_create()

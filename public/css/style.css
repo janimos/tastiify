@@ -244,3 +244,7 @@ button, input, select, textarea {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
+.col-sm-6-max {
+    flex: 0 0 50%;
+    max-width: 100%;
+}
