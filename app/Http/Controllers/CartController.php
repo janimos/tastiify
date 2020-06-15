@@ -166,6 +166,13 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Auth::check()){
+            $products = session()->pull('products');
+            $products = array_diff($products,[$id]);
+            $products = array_values($products);
+            session()->put('products',$products);
+            return redirect ('/cart');
+        }
+        else return redirect ('/login');
     }
 }

@@ -30,6 +30,7 @@ Route::get('/products/create', 'ProductController@show_create');
 Route::get('/products/edit', 'ProductController@show_edit');
 
 Route::get('/cart', 'CartController@show');
+Route::get('/cart/remove/{product_id}', 'CartController@destroy');
 
 Route::get('/orders', 'CartController@order');
 Route::get('/orders/show/{order_id}','CartController@index');

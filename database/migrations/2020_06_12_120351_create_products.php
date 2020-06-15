@@ -18,7 +18,7 @@ class CreateProducts extends Migration
             $table->timestamps();
       	    $table->string('Name',25);
       	    $table->decimal('price',8,2);
-      	    $table->foreignId('country_id')->constrained();`
+      	    $table->foreignId('country_id')->constrained();
         });
     }
 

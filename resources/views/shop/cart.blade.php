@@ -2,6 +2,12 @@
 
 @section('content')
 
+<script>
+    function Remove(ID) {
+        window.location.href="/cart/remove/"+ID;
+    }
+</script>
+
 <div class="flex-center position-ref full-height">
     <div class="content">
       <div class="mx-auto my-5">
@@ -20,13 +26,15 @@
                             {{ method_field('PATCH') }}
                             @foreach($products as $p)
                             <div class="product-bg">
-                                <div class="product-box" style="height: 160px;">
+                                <div class="product-box" style="height: 200px;">
                                   <h4 class="nomargin">{{$p->Name}}</h4>
                                   {{$p->price}} EUR
                                   <br>Quantity
                                   <input type="number" min="1" class="form-control make" name="quantity[]" id="quantity" value="1">
                                   <input type="hidden" name="product_id[]" value="{{$p->id}}" />
+                                  <input type="button" class="btn btn-danger" value="Delete product" onclick="Remove({{ $p->id }})"/>
                                   </div>
+                            </div>
                             </div>
                             @endforeach
                             <div class="form-group row">
