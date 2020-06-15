@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -41,7 +42,7 @@
                         <a href="{{ url('/cart') }}">Cart</a>
                         @if(!Auth::guest())
                           <a href="{{ url('/orders') }}">Orders</a>
-                        @endif                       
+                        @endif
                         @if ( !Auth::guest() && Auth::user()->isAdmin() )
                             <a href="{{ url('/admin') }}" class="admin">Admin</a>
                         @endif

@@ -8,6 +8,9 @@
         <div class="title products-title">
             @foreach($product as $p)
               {{ $p->Name }}
+              <p class="lead font-weight-normal">
+                Product from {{ $p->country->Name }}
+              </p>
             @endforeach
         </div>
       </div>

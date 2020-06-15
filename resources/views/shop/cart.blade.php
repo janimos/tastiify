@@ -17,26 +17,26 @@
       </div>
       <div class="mx-auto my-5">
           <div class="row justify-content-center">
-              <div class="col-md-4">
-                  <div class="card">
-                      <div class="list-group-item-new">
+              <div class="col-md-4" >
+                  <div class="card" style="max-height: 150em; background-color: rgba(0,0,0,0); border: 1px solid rgba(0, 0, 0, 0);" >
+                      <div class="list-group-item-new" style="border-color: rgba(0,0,0,0); background-color: rgba(0,0,0,0);">
                         @isset($products)
                         <form class="form-horizontal" method="POST" action="{{"/order"}}">
                             @csrf
                             {{ method_field('PATCH') }}
                             @foreach($products as $p)
-                            <div class="product-bg">
-                                <div class="product-box" style="height: 200px;">
-                                  <h4 class="nomargin">{{$p->Name}}</h4>
-                                  {{$p->price}} EUR
-                                  <br>Quantity
-                                  <input type="number" min="1" class="form-control make" name="quantity[]" id="quantity" value="1">
-                                  <input type="hidden" name="product_id[]" value="{{$p->id}}" />
-                                  <input type="button" class="btn btn-danger" value="Delete product" onclick="Remove({{ $p->id }})"/>
-                                  </div>
-                            </div>
-                            </div>
+                              <div class="product-bg" style="display:inline-block;">
+                                  <div class="product-box" style="height: 200px; width: 400px">
+                                    <h4 class="nomargin">{{$p->Name}}</h4>
+                                    {{$p->price}} EUR
+                                    <br>Quantity
+                                    <input type="number" min="1" class="form-control make" name="quantity[]" id="quantity" value="1">
+                                    <input type="hidden" name="product_id[]" value="{{$p->id}}" />
+                                    <input type="button" class="btn btn-danger" value="Delete product" onclick="Remove({{ $p->id }})"/>
+                                    </div>
+                              </div>
                             @endforeach
+                        </div>
                             <div class="form-group row">
                               <div class="col-md-6 offset-md-4">
                                 <input type="submit" style="margin-right: 38%;" class="btn btn-warning" value="Make Order">

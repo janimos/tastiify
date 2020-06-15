@@ -11,7 +11,7 @@
   </div>
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card" style="border-radius: 21px;">
                 <div class="card-body">
                     <h4>Selected products :</h4>
                     <div class="card-text">

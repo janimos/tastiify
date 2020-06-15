@@ -58,3 +58,6 @@ Route::patch('/order', 'CartController@create');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToGoogle');
 Route::get('/callback', 'Auth\LoginController@handleGoogleCallback');
+
+Route::get('/search','ProductController@show_search');
+Route::get('/search/products','ProductController@search');

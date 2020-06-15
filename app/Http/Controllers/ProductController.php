@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Input;
 use Response;
 use Image;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class ProductController extends Controller
 {
@@ -185,6 +186,34 @@ class ProductController extends Controller
         }
         return view('shop.admin_pages.edit_product', ['keywords' => $keywords]);
       } else return redirect('/');
+    }
+
+
+    public function show_search()
+    {
+        return view('shop.pr_search');
+    }
+    public function search(Request $request)
+    {
+      if($request->ajax()){
+        $output = "";
+        $products = Product::Where('Name','LIKE','%'.$request->search."%")->get();
+        if($products){
+          foreach ($products as $key) {
+            $country = Country::Where('id',$key->country_id)->get();
+            foreach ($country as $c) {
+              $name = $c->Name;
+              break;
+            }
+            $output.='<tr>'.
+            '<td><a href="/country/product/'.$key->id.'">'.$key->Name.'</a></td>'.
+            '<td>'.$name.'</td>'.
+            '<td>'.$key->price.'</td>'.
+            '</tr>';
+          }
+          return Response($output);
+        }
+      }
     }
 
     /**

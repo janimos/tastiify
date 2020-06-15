@@ -9,7 +9,7 @@
   </div>
     <div>
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card" style="border-radius: 21px;">
                 <div class="card-body">
                   @foreach ( $orders as $order )
                   <div class="card-text">
