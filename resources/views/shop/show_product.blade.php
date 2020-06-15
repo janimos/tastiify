@@ -21,7 +21,7 @@
               <div class="product-img">
                 @isset($desc->image)
                   <img alt="{{ $p->Name }}"
-                  src="data:image/jpg;charset=utf8;base64,{{ base64_encode($desc->image) }}"/>
+                  src="data:image/jpeg;charset=utf8;base64,{{ base64_encode($desc->image) }}"/>
                 @endisset
                 @empty($desc->image)
                   <img alt="{{ $p->Name }}"

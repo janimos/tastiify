@@ -40,6 +40,7 @@
                     <div class="links navbar-links">
                         <a href="{{ url('/products') }}">Products</a>
                         <a href="{{ url('/cart') }}">Cart</a>
+                        <a href="{{ url('/search') }}">Search</a>
                         @if(!Auth::guest())
                           <a href="{{ url('/orders') }}">Orders</a>
                         @endif

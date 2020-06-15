@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CountrySeeder::class);
         $this->call(KeywordSeeder::class);
         $this->call(ProductSeeder::class);
+        $this->call(ProductDescriptionPhotoSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
 }
